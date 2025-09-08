@@ -1,0 +1,3 @@
+[submodule "dedicated-snap-store-customers"]
+	path = dedicated-snap-store-customers
+	url = git@github.com:canonical/dedicated-snap-store-customers.git
