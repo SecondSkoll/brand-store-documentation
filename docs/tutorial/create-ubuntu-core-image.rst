@@ -6,14 +6,11 @@ Create an Ubuntu Core image
     .. note:: Check :doc:`/reference/configuration-values` for information
         relating to the specific configuration for your Dedicated Snap Store.
 
-{% if 'admin@acme.com' in CUSTOMER_ADMIN_EMAIL %}
 .. warning::
 
 	Example values are provided for store configuration in this document. If
 	you are a Dedicated Snap Store customer, you will be provided with a set of
 	documentation with the details of your store.
-
-{% endif %}
 
 To validate that the store was provisioned correctly and that you are able to
 access it, we recommend creating and booting an Ubuntu Core image for amd64.
@@ -25,7 +22,7 @@ In order for a device to be able to connect to your Dedicated Snap Store, it
 must provide a secret to the Model Service. This secret is called the model API
 key, and this key corresponds to a particular model name. The model name should
 be an informative string like "acme-gateway-prod". For this tutorial, we are
-using the model name ``{{CUSTOMER_MODEL_NAME}}``. You should :ref:`configure the Model Service <model-service>`
+using the model name ``alpha``. You should :ref:`configure the Model Service <model-service>`
 adding that model name, and make note of the API key. We will add that to the
 gadget snap in the next section.
 
@@ -54,10 +51,10 @@ For this specific case of validating the initial store setup, let's use the
     sudo snap install --classic --channel=8.x/stable snapcraft
     sudo apt update
     sudo apt install -y git
-    git clone -b {{CUSTOMER_UBUNTU_CORE_VERSION}} https://github.com/canonical/pc-gadget {{CUSTOMER_STORE_PREFIX}}
-    cd {{CUSTOMER_STORE_PREFIX}}
+    git clone -b 24 https://github.com/canonical/pc-gadget acme
+    cd acme
 
-* Update the ``name`` field in the ``snapcraft.yaml`` to ``{{CUSTOMER_STORE_PREFIX}}-pc``.
+* Update the ``name`` field in the ``snapcraft.yaml`` to ``acme-pc``.
 
 * Update the value of the ``MODEL_APIKEY`` environment variable in the
   ``snapcraft.yaml`` to the value generated during the Model Service setup above.
@@ -70,7 +67,7 @@ Build the snap:
 .. terminal::
     :user: user
     :host: localhost
-    :dir: ~/{{CUSTOMER_STORE_PREFIX}}
+    :dir: ~/acme
     
     snapcraft
 
@@ -87,31 +84,31 @@ Register the gadget snap name in your Base store and push the initial revision:
 .. terminal::
     :user: user
     :host: localhost
-    :dir: ~/{{CUSTOMER_STORE_PREFIX}}
+    :dir: ~/acme
 
     snapcraft whoami
 
-    email:        {{CUSTOMER_BRAND_EMAIL}}
-    developer-id: {{CUSTOMER_BRAND_ACCOUNT_ID}}
+    email:        brand@acme.com
+    developer-id: brand-account
 
 .. terminal::
     :user: user
     :host: localhost
-    :dir: ~/{{CUSTOMER_STORE_PREFIX}}
+    :dir: ~/acme
 
-    snapcraft register {{CUSTOMER_STORE_PREFIX}}-pc --store={{CUSTOMER_STORE_ID}}
+    snapcraft register acme-pc --store=acme-store
 
     ...
     you, and be the software you intend to publish there? [y/N]: y
-    Registering {{CUSTOMER_STORE_PREFIX}}-pc.
-    Congrats! You are now the publisher of '{{CUSTOMER_STORE_PREFIX}}-pc'.
+    Registering acme-pc.
+    Congrats! You are now the publisher of 'acme-pc'.
 
 .. terminal::
     :user: user
     :host: localhost
-    :dir: ~/{{CUSTOMER_STORE_PREFIX}}
+    :dir: ~/acme
 
-    snapcraft push {{CUSTOMER_STORE_PREFIX}}-pc_{{CUSTOMER_UBUNTU_CORE_VERSION}}_amd64.snap
+    snapcraft push acme-pc_24_amd64.snap
 
     The Store automatic review failed.
     A human will soon review your snap, but if you can't wait write in
@@ -128,11 +125,11 @@ For how automatic and manual reviews work, see
 
 At this point, you should add a `collaborator <https://snapcraft.io/docs/store-brand-accounts>`_
 to the gadget snap and logout of the Brand account. A good choice for such an
-account would be one with the **Viewer** role in the ``{{CUSTOMER_STORE_NAME}}``
-and ``{{CUSTOMER_DEVICEVIEW_NAME}}`` stores.
+account would be one with the **Viewer** role in the ``Alpha 3``
+and ``acme id`` stores.
 
-Log into the web dashboard as ``{{CUSTOMER_ADMIN_EMAIL}}``, the **Reviewer**
-for the ``{{CUSTOMER_STORE_NAME}}`` store, and access the `reviews page <https://dashboard.snapcraft.io/reviewer/{{ CUSTOMER_STORE_ID}}/>`_
+Log into the web dashboard as ``admin@acme.com``, the **Reviewer**
+for the ``Alpha 3`` store, and access the `reviews page <https://dashboard.snapcraft.io/reviewer/acme-store/>`_
 to approve the gadget revision.
 
 Log in to the account you made a **Collaborator** on the gadget snap. Once the
@@ -142,29 +139,29 @@ as a **Collaborator**:
 .. terminal::
     :user: user
     :host: localhost
-    :dir: ~/{{CUSTOMER_STORE_PREFIX}}
+    :dir: ~/acme
 
     snapcraft whoami
 
-    email:        {{CUSTOMER_BRAND_EMAIL}}
-    developer-id: {{CUSTOMER_BRAND_ACCOUNT_ID}}
+    email:        brand@acme.com
+    developer-id: brand-account
 
 .. terminal::
     :user: user
     :host: localhost
-    :dir: ~/{{CUSTOMER_STORE_PREFIX}}
+    :dir: ~/acme
 
-    snapcraft release {{CUSTOMER_STORE_PREFIX}}-pc 1 stable
+    snapcraft release acme-pc 1 stable
 
     Track    Arch    Channel    Version    Revision
-    latest   all     stable     {{CUSTOMER_UBUNTU_CORE_VERSION}}     1
+    latest   all     stable     24     1
                      candidate  ^          ^
                      beta       ^          ^
                      edge       ^          ^
     The 'stable' channel is now open.
 
 The gadget snap is now available for installation from the
-``{{CUSTOMER_DEVICEVIEW_NAME}}`` store and for inclusion in images.
+``acme id`` store and for inclusion in images.
 
 Creating the model assertion
 ----------------------------
@@ -177,58 +174,46 @@ a model key, refer to `Sign a model assertion <https://ubuntu.com/core/docs/sign
 
 The below creates a JSON file which can be signed to create a model assertion.
 
-Access the `snap page <https://dashboard.snapcraft.io/snaps/{{CUSTOMER_STORE_PREFIX}}-pc/>`_
-to get the ``{{CUSTOMER_STORE_PREFIX}}``-pc snap's snap ID and fill the
+Access the `snap page <https://dashboard.snapcraft.io/snaps/acme-pc/>`_
+to get the ``acme``-pc snap's snap ID and fill the
 ``<CUSTOMER_SNAP_IDS>`` field.
 
 .. terminal::
     :user: user
     :host: localhost
-    :dir: ~/{{CUSTOMER_STORE_PREFIX}}
+    :dir: ~/acme
 
-    cat << EOF > {{CUSTOMER_MODEL_NAME}}-model.json
+    cat << EOF > alpha-model.json
 
     {
       "type": "model",
-      "authority-id": "{{CUSTOMER_BRAND_ACCOUNT_ID}}",
-      "brand-id": "{{CUSTOMER_BRAND_ACCOUNT_ID}}",
+      "authority-id": "brand-account",
+      "brand-id": "brand-account",
       "series": "16",
-      "model": "{{CUSTOMER_MODEL_NAME}}",
-      "store": "{{CUSTOMER_DEVICEVIEW_ID}}",
+      "model": "alpha",
+      "store": "acme-id",
       "architecture": "amd64",
-      "base": "core{{CUSTOMER_UBUNTU_CORE_VERSION}}",
+      "base": "core24",
       "grade": "dangerous",
       "snaps": [
         {
           "default-channel": "latest/stable",
           "id": "<CUSTOMER_SNAP_IDS>",
-          "name": "{{CUSTOMER_STORE_PREFIX}}-pc",
+          "name": "acme-pc",
           "type": "gadget"
         },
         {
-          "default-channel": "{{CUSTOMER_UBUNTU_CORE_VERSION}}/stable",
+          "default-channel": "24/stable",
           "id": "pYVQrBcKmBa0mZ4CCN7ExT6jH8rY1hza",
           "name": "pc-kernel",
           "type": "kernel"
-        },{% if '22' in CUSTOMER_UBUNTU_CORE_VERSION %}
-        {
-          "default-channel": "latest/stable",
-          "id": "amcUKQILKXHHTlmSa7NMdnXSx02dNeeT",
-          "name": "core22",
-          "type": "base"
-        },{% endif %}{% if '24' or 'NULL' in CUSTOMER_UBUNTU_CORE_VERSION %}
+        },
         {
           "default-channel": "latest/stable",
           "id": "dwTAh7MZZ01zyriOZErqd1JynQLiOGvM",
           "name": "core24",
           "type": "base"
-        },{% endif %}{% if '26' or 'NULL' in CUSTOMER_UBUNTU_CORE_VERSION %}
-        {
-          "default-channel": "latest/stable",
-          "id": "cUqM61hRuZAJYmIS898Ux66VY61gBbZf",
-          "name": "core26",
-          "type": "base"
-        },{% endif %}
+        },
         {
           "default-channel": "latest/stable",
           "id": "PMrrV4ml8uWuEUDBT8dSGnKUYbevVhc4",
@@ -236,7 +221,7 @@ to get the ``{{CUSTOMER_STORE_PREFIX}}``-pc snap's snap ID and fill the
           "type": "snapd"
         },
         {
-          "default-channel": "{{CUSTOMER_UBUNTU_CORE_VERSION}}/stable",
+          "default-channel": "24/stable",
           "id": "ASctKBEHzVt3f1pbZLoekCvcigRjtuqw",
           "name": "console-conf",
           "type": "app",
@@ -250,7 +235,7 @@ to get the ``{{CUSTOMER_STORE_PREFIX}}``-pc snap's snap ID and fill the
 .. terminal::
     :user: user
     :host: localhost
-    :dir: ~/{{CUSTOMER_STORE_PREFIX}}
+    :dir: ~/acme
 
     snapcraft keys
         Name          SHA3-384 fingerprint
@@ -259,12 +244,12 @@ to get the ``{{CUSTOMER_STORE_PREFIX}}``-pc snap's snap ID and fill the
 .. terminal::
     :user: user
     :host: localhost
-    :dir: ~/{{CUSTOMER_STORE_PREFIX}}
+    :dir: ~/acme
 
-    snap sign -k model {{CUSTOMER_MODEL_NAME}}-model.json > {{CUSTOMER_MODEL_NAME}}-model.assert
+    snap sign -k model alpha-model.json > alpha-model.assert
 
 Ensure that all snaps listed in the model assertion are available in the
-``{{CUSTOMER_DEVICEVIEW_NAME}}`` store. If they are not, you must `include them <https://documentation.ubuntu.com/dedicated-snap-store/explanation/snap-inclusion/>`_.
+``acme id`` store. If they are not, you must `include them <https://documentation.ubuntu.com/dedicated-snap-store/explanation/snap-inclusion/>`_.
 
 .. _image-creation-credentials:
 
@@ -284,7 +269,7 @@ To build Ubuntu Core images, use the ubuntu-image tool:
     sudo snap install --classic --channel=latest/stable ubuntu-image
 
 In order for ubuntu-image to able to access snaps from your Dedicated Snap
-Store, you need to provide credentials for a **Viewer** account in the ${{CUSTOMER_DEVICEVIEW_ID}}
+Store, you need to provide credentials for a **Viewer** account in the $acme-id
 store using one of the following environment variables:
 
 * ``UBUNTU_STORE_AUTH`` - this must be set to the actual contents of the file
@@ -299,7 +284,7 @@ above, we must explicitly include it in the image.
 
 .. terminal::
 
-	UBUNTU_STORE_AUTH=$(cat store.auth) ubuntu-image snap --snap console-conf {{CUSTOMER_MODEL_NAME}}-model.assert
+	UBUNTU_STORE_AUTH=$(cat store.auth) ubuntu-image snap --snap console-conf alpha-model.assert
 
 .. _launching-and-verifying-the-image:
 
@@ -309,21 +294,21 @@ Launching and verifying the image
 To launch and test your newly generated Ubuntu Core image,
 follow the `Testing with QEMU <https://ubuntu.com/core/docs/testing-with-qemu>`_
 steps. Once the image is booted and installed, you can log in then verify if the
-all required snaps are installed, the {{CUSTOMER_MODEL_NAME}}  model is correct
+all required snaps are installed, the alpha  model is correct
 and a serial assertion was obtained:
 
 .. terminal::
-    :user: {{UBUNTU_SSO_USER_NAME}}
+    :user: acme-sso-user
     :host: localhost
     :output-only:
 
-    Welcome to Ubuntu {{CUSTOMER_UBUNTU_CORE_VERSION}} (GNU/Linux <kernel version> x86_64)
+    Welcome to Ubuntu 24 (GNU/Linux <kernel version> x86_64)
     ...
     Please see 'snap --help' for app installation and updates.
     ...
 
 .. terminal::
-    :user: {{UBUNTU_SSO_USER_NAME}}
+    :user: acme-sso-user
     :host: localhost
 
     snap list
@@ -335,7 +320,7 @@ and a serial assertion was obtained:
     snapd         2.63         21759  latest/stable  canonical✓   snapd
 
 .. terminal::
-    :user: {{UBUNTU_SSO_USER_NAME}}
+    :user: acme-sso-user
     :host: localhost
 
     snap changes
@@ -345,27 +330,27 @@ and a serial assertion was obtained:
     2    Done    today at 07:16 UTC  today at 07:16 UTC  Initialize device
 
 .. terminal::
-    :user: {{UBUNTU_SSO_USER_NAME}}
+    :user: acme-sso-user
     :host: localhost
 
     snap model --assertion
 
     type: model
-    authority-id: {{CUSTOMER_BRAND_ACCOUNT_ID}}
+    authority-id: brand-account
     series: 16
-    brand-id: {{CUSTOMER_BRAND_ACCOUNT_ID}}
-    model: {{CUSTOMER_MODEL_NAME}}
+    brand-id: brand-account
+    model: alpha
     ...
 
 .. terminal::
-    :user: {{UBUNTU_SSO_USER_NAME}}
+    :user: acme-sso-user
     :host: localhost
 
     snap model --serial --assertion
 
     type: serial
-    authority-id: {{CUSTOMER_BRAND_ACCOUNT_ID}}
+    authority-id: brand-account
     revision: 1
-    brand-id: {{CUSTOMER_BRAND_ACCOUNT_ID}}
-    model: {{CUSTOMER_MODEL_NAME}}
+    brand-id: brand-account
+    model: alpha
     ...

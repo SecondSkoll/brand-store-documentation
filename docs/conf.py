@@ -1,14 +1,9 @@
 import datetime
-import ast
-import logging
 import os
-from os import environ
 import textwrap
-import yaml
 import sys
 
 sys.path.append(os.path.abspath("./_ext"))
-logger = logging.getLogger()
 
 # Configuration for the Sphinx documentation builder.
 # All configuration specific to your project should be done in this file.
@@ -244,7 +239,7 @@ if os.environ.get("READTHEDOCS"):
 
 linkcheck_ignore = [
     'http://127.0.0.1:8000',
-    'https://dashboard.snapcraft.io/reviewer/{{CUSTOMER_STORE_ID}}/',
+    'https://dashboard.snapcraft.io/reviewer/acme-store/',
     'https://readthedocs.com/projects/*',
     'https://canonical-canonical-brand-store.readthedocs-hosted.com/*',
     'https://canonical-brand-store-acme-alpha.readthedocs-hosted.com/*',
@@ -252,8 +247,8 @@ linkcheck_ignore = [
     'https://ubuntu.com/core/docs/gadget-snaps#heading--gadget',
     'https://ubuntu.com/core/services/guide/signing-keys#heading--key-roles',
     'https://portal.support.canonical.com',
-    'https://dashboard.snapcraft.io/snaps/{{CUSTOMER_STORE_PREFIX}}-pc/',
-    'https://dashboard.snapcraft.io/dev/store/{{CUSTOMER_STORE_ID}}/permissions/',
+    'https://dashboard.snapcraft.io/snaps/acme-pc/',
+    'https://dashboard.snapcraft.io/dev/store/acme-store/permissions/',
     'https://github.com/canonical/hsm-assertion-signing-reference',
     'http://support.canonical.com/',
     'https://snapcraft.io/docs/channels',
@@ -329,7 +324,6 @@ extensions = [
     "sphinx_last_updated_by_git",
     "sphinx.ext.intersphinx",
     "sphinx_sitemap",
-    "rstjinja",
 ]
 
 # Excludes files or directories from processing
@@ -385,154 +379,4 @@ if "discourse_prefix" not in html_context and "discourse" in html_context:
     html_context["discourse_prefix"] = html_context["discourse"] + "/t/"
 
 
-# Templating
 
-with open("templates/TEMPLATE.yaml") as template_file:
-    template_values = yaml.safe_load(template_file)
-
-template_path = os.environ.get("TEMPLATE_FILENAME", "NONE")
-
-try:
-    if environ['TEMPLATE'] != "NONE":
-        template_path = environ['TEMPLATE']
-except LookupError:
-    print("No template variable set. Assuming RTD build.")
-    pass
-
-try:
-    with open(template_path) as template_file:
-        template_values = yaml.safe_load(template_file)
-except FileNotFoundError:
-    logger.error(f"Template {template_path} not found")
-    # Then fall back to the defaults
-
-html_context = {**html_context, **template_values}
-
-# PDF generation
-
-latex_documents = [  ('pdf-index', 'UC24_Onboarding_Guide.tex', u'UC24 Onboarding Guide', u'Canonical', 'manual'),]
-
-latex_elements = {
-    'papersize': 'a4paper',
-    'pointsize': '11pt',
-    'fncychap': '',
-    'preamble': r'''
-%\usepackage{charter}
-%\usepackage[defaultsans]{lato}
-%\usepackage{inconsolata}
-\setmainfont[UprightFont = *-R, BoldFont = *-B, ItalicFont=*-RI, Extension = .ttf]{Ubuntu}
-\setmonofont[UprightFont = *-R, BoldFont = *-B, ItalicFont=*-RI, Extension = .ttf]{UbuntuMono}
-\usepackage[most]{tcolorbox}
-\tcbuselibrary{breakable}
-\usepackage{lastpage}
-\usepackage{tabto}
-\usepackage{ifthen}
-\usepackage{etoolbox}
-\usepackage{fancyhdr}
-\usepackage{graphicx}
-\usepackage{titlesec}
-\usepackage{fontspec}
-\usepackage{tikz}
-\usepackage{changepage}
-\usepackage{array}
-\usepackage{tabularx}
-\graphicspath{ {../../.sphinx/images/} }
-\definecolor{yellowgreen}{RGB}{154, 205, 50}
-\definecolor{title}{RGB}{76, 17, 48}
-\definecolor{subtitle}{RGB}{116, 27, 71}
-\definecolor{label}{RGB}{119, 41, 100}
-\definecolor{copyright}{RGB}{174, 167, 159}
-\makeatletter
-\def\tcb@finalize@environment{%
-  \color{.}% hack for xelatex
-  \tcb@layer@dec%
-}
-\makeatother
-\newenvironment{sphinxclassprompt}{\color{yellowgreen}\setmonofont[Color = 9ACD32, UprightFont = *-R, Extension = .ttf]{UbuntuMono}}{}
-\tcbset{enhanced jigsaw, colback=black, fontupper=\color{white}}
-\newtcolorbox{termbox}{use color stack, breakable, colupper=white, halign=flush left}
-\newenvironment{sphinxclassterminal}{\setmonofont[Color = white, UprightFont = *-R, Extension = .ttf]{UbuntuMono}\sphinxsetup{VerbatimColor={black}}\begin{termbox}}{\end{termbox}}
-\newcommand{\dimtorightedge}{%
-  \dimexpr\paperwidth-1in-\hoffset-\oddsidemargin\relax}
-\newcommand{\dimtotop}{%
-  \dimexpr\height-1in-\voffset-\topmargin-\headheight-\headsep\relax}
-\newtoggle{tpage}
-\AtBeginEnvironment{titlepage}{\global\toggletrue{tpage}}
-\fancypagestyle{plain}{
-    \fancyhf{}
-    \fancyfoot[R]{\thepage\ of \pageref*{LastPage}}
-    \renewcommand{\headrulewidth}{0pt}
-    \renewcommand{\footrulewidth}{0pt}
-}
-\fancypagestyle{normal}{
-    \fancyhf{}
-    \fancyfoot[R]{\thepage\ of \pageref*{LastPage}}
-    \renewcommand{\headrulewidth}{0pt}
-    \renewcommand{\footrulewidth}{0pt}
-}
-\fancypagestyle{titlepage}{%
-    \fancyhf{}
-    \fancyfoot[L]{\footnotesize \textcolor{copyright}{© 2024 Canonical Ltd. All rights reserved. Confidential and proprietary, do not share without permission.}}
-}
-\newcommand\sphinxbackoftitlepage{\thispagestyle{titlepage}}
-\titleformat{\chapter}[block]{\Huge \color{title} \bfseries\filright}{\thechapter}{1.5ex}{}
-\titlespacing{\chapter}{0pt}{0pt}{0pt}
-\titleformat{\section}[block]{\huge \bfseries\filright}{\thesection}{1.5ex}{} 
-\titlespacing{\section}{0pt}{0pt}{0pt}
-\titleformat{\subsection}[block]{\Large \bfseries\filright}{\thesubsection}{1.5ex}{} 
-\titlespacing{\subsection}{0pt}{0pt}{0pt}
-\setcounter{tocdepth}{1}
-\renewcommand\pagenumbering[1]{}
-''',
-    'sphinxsetup': 'verbatimwithframe=false, pre_border-radius=0pt, verbatimvisiblespace=\\phantom{}, verbatimcontinued=\\phantom{}',
-    'extraclassoptions': 'openany,oneside',
-    'maketitle': r'''
-\begin{titlepage}
-\begin{flushleft}
-    \begin{tikzpicture}[remember picture,overlay]
-    \node[anchor=south east, inner sep=0] at (current page.south east) {
-    \includegraphics[width=\paperwidth, height=\paperheight]{front-page-light}
-    };
-    \end{tikzpicture}
-\end{flushleft}
-
-\vspace*{3cm}
-
-\Huge \textcolor{title}{''' + template_values['CUSTOMER_NAME'] + r''' Onboarding Guide}
-
-\Large \textcolor{subtitle}{\textit{Dedicated Snap Store and Image Build Quick-Start Guide}}
-
-\vfill
-
-\textcolor{label}{Prepared by:} \tabto{8em} ''' + template_values['PREPARED_BY'] + r'''
-
-\textcolor{label}{Prepared on:} \tabto{8em} ''' + template_values['PREPARED_ON'] + r'''
-
-\vfill
-
-\begin{adjustwidth}{8cm}{0pt}
-\begin{tabularx}{0.5\textwidth}{ l l }
-    \hspace{3cm}  & \small\textcolor{lightgray}{© 2024 Canonical Ltd.}            \\
-    \hspace{3cm}  & \small\textcolor{lightgray}{All rights reserved.}             \\
-    \hspace{3cm}  & \small\textcolor{lightgray}{Confidential and proprietary,}    \\
-    \hspace{3cm}  & \small\textcolor{lightgray}{do not share without permission.} \\
-
-\end{tabularx}
-\end{adjustwidth}
-
-\end{titlepage}
-\RemoveFromHook{shipout/background}
-\AddToHook{shipout/background}{
-      \begin{tikzpicture}[remember picture,overlay]
-      \node[anchor=south west, align=left, inner sep=0] at (current page.south west) {
-        \includegraphics[width=\paperwidth]{normal-page-footer}
-      };
-      \end{tikzpicture}
-      \begin{tikzpicture}[remember picture,overlay]
-      \node[anchor=north east, opacity=0.5, inner sep=35] at (current page.north east) {
-        \includegraphics[width=4cm]{Canonical-logo-4x}
-      };
-      \end{tikzpicture}
-    }
-''',
-}

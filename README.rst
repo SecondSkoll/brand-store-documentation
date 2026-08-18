@@ -4,15 +4,15 @@ Dedicated Snap Store Documentation
 Product page: https://ubuntu.com/internet-of-things/appstore
 Documentation: https://ubuntu.com/internet-of-things/appstore/docs/
 
-This repository contains documentation for Dedicated Snap Stores. It allows the
-documentation to be templated with customer specific account details.
+This repository contains documentation for Dedicated Snap Stores. The
+documentation is configured with the ``acme-alpha`` example store values
+(see ``docs/templates/acme-alpha.yaml``), including the ``Alpha 3`` Base
+store (ID ``acme-store``), the ``acme id`` Device View store (ID
+``acme-id``), the ``alpha`` model name, and the ``brand@acme.com`` Brand
+account.
 
 This set of documentation is based on the `Canonical Sphinx Docs Starter Pack <https://github.com/canonical/sphinx-docs-starter-pack>`_.
 See that project for general instructions.
-
-See ``WORKFLOW.rst`` for instructions on adding or updating a domain for a
-specific Dedicated Snap Store.
-
 
 Historical links
 ----------------

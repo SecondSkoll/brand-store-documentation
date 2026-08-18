@@ -4,14 +4,11 @@
 Use the Store API
 =================
 
-{% if 'admin@acme.com' in CUSTOMER_ADMIN_EMAIL %}
 .. warning::
 
 	Example values are provided for store configuration in this document. If
 	you are a Dedicated Snap Store customer, you will be provided with a set of
 	documentation with the details of your store.
-
-{% endif %}
 
 Prerequisites
 -------------
@@ -39,21 +36,21 @@ Check the store
 
 .. code-block:: text
 
-   surl -a prod -X GET https://dashboard.snapcraft.io/api/v2/stores/{{CUSTOMER_STORE_ID}}
+   surl -a prod -X GET https://dashboard.snapcraft.io/api/v2/stores/acme-store
 
 A successful call returns ``200 OK`` and JSON containing the store and users,
 for example:
 
 .. code-block:: json
 
-   {"store": {"id": "{{CUSTOMER_STORE_ID}}"}, "users": []}
+   {"store": {"id": "acme-store"}, "users": []}
 
 List included snaps
 -------------------
 
 .. code-block:: text
 
-   surl -a prod -X GET https://dashboard.snapcraft.io/api/v2/stores/{{CUSTOMER_STORE_ID}}/snaps
+   surl -a prod -X GET https://dashboard.snapcraft.io/api/v2/stores/acme-store/snaps
 
 A successful call returns ``200 OK`` with ``snaps`` and ``store`` objects. The
 list includes snaps registered or added directly to this store, but not snaps
@@ -67,7 +64,7 @@ that explicitly allows this store to include it.
 
 .. code-block:: text
 
-   surl -a prod -X POST https://dashboard.snapcraft.io/api/v2/stores/{{CUSTOMER_STORE_ID}}/snaps -d '{"add": [{"name": "<snap-name>"}]}'
+   surl -a prod -X POST https://dashboard.snapcraft.io/api/v2/stores/acme-store/snaps -d '{"add": [{"name": "<snap-name>"}]}'
 
 A successful call returns ``200 OK`` and the updated ``snaps`` list. Confirm
 that the snap appears in the target store in the dashboard.
@@ -79,7 +76,7 @@ Only a snap previously added through this API can be removed through this API.
 
 .. code-block:: text
 
-   surl -a prod -X POST https://dashboard.snapcraft.io/api/v2/stores/{{CUSTOMER_STORE_ID}}/snaps -d '{"remove": [{"name": "<snap-name>"}]}'
+   surl -a prod -X POST https://dashboard.snapcraft.io/api/v2/stores/acme-store/snaps -d '{"remove": [{"name": "<snap-name>"}]}'
 
 A successful call returns ``200 OK`` and the updated list. Confirm in the
 dashboard that the snap no longer appears in the target store.

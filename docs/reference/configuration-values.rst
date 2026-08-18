@@ -4,14 +4,11 @@
 Dedicated Snap Store configuration
 ==================================
 
-{% if 'admin@acme.com' in CUSTOMER_ADMIN_EMAIL %}
 .. warning:: 
 
     Example values are provided for store configuration in this document. If
     you are a Dedicated Snap Store customer, you will be provided with a set of
     documentation with the details of your store.
-
-{% endif %}
 
 This section provides links to useful documentation as well as important facts
 associated with your Dedicated Snap Store.
@@ -22,11 +19,11 @@ Store architecture
 Your Dedicated Snap Store is composed of two stores, your :ref:`Base store <base-stores>`
 and your :ref:`Device View store <device-view-stores>`.
 
-Your Base store is:  ``{{CUSTOMER_STORE_NAME}}`` (``{{CUSTOMER_STORE_ID}}``)
+Your Base store is:  ``Alpha 3`` (``acme-store``)
 
-Your Device View store is: ``{{CUSTOMER_DEVICEVIEW_NAME}}`` (``{{CUSTOMER_DEVICEVIEW_ID}}``)
+Your Device View store is: ``acme id`` (``acme-id``)
 
-Your Device View store is configured to automatically include all snaps from ``{{STORES_WITH_WHOLESALE_INCLUSION}}``
+Your Device View store is configured to automatically include all snaps from ``global``
 
 All stores (including your Device View store) always include the snapd snap and
 the LTS core snaps (core18, core20, core22, core24).
@@ -51,23 +48,23 @@ Your store has been provisioned with the following IDs and roles:
      - Base Store
      - Device view Store
    * - Store Name
-     - {{CUSTOMER_STORE_NAME}}
-     - {{CUSTOMER_DEVICEVIEW_NAME}}
+     - Alpha 3
+     - acme id
    * - Store ID
-     - {{CUSTOMER_STORE_ID}}
-     - {{CUSTOMER_DEVICEVIEW_ID}}
+     - acme-store
+     - acme-id
    * - Admin(s)
-     - {{CUSTOMER_ADMIN_EMAIL}}
-     - {{CUSTOMER_ADMIN_EMAIL}}
+     - admin@acme.com
+     - admin@acme.com
    * - Publisher(s)
-     - {{CUSTOMER_BRAND_EMAIL}}
+     - brand@acme.com
      - (none)
    * - Reviewer(s)
-     - {{CUSTOMER_ADMIN_EMAIL}}
+     - admin@acme.com
      - (none)
    * - Viewer(s)
-     - {{CUSTOMER_VIEWER_EMAIL}}
-     - {{CUSTOMER_VIEWER_EMAIL}}
+     - viewer@acme
+     - viewer@acme
 
 The Admin role can be used to grant these roles to other accounts, as well.
 
@@ -78,7 +75,7 @@ The Brand account was set up for your Dedicated Snap Store at the time of store
 creation. The Brand account defines the Brand scope of authority, and it must
 be used for certain functions You can find those functions in the :ref:`brand accounts <brand-accounts>` section.
 
-Your Brand account is: ``{{CUSTOMER_BRAND_EMAIL}}`` (account-id: ``{{CUSTOMER_BRAND_ACCOUNT_ID}}``)
+Your Brand account is: ``brand@acme.com`` (account-id: ``brand-account``)
 
 As a publisher, after registering snap names the Brand account may make other
 developer accounts **Collaborators** on these snaps. These accounts may then
@@ -104,7 +101,7 @@ Ubuntu Pro & Support Portal account
 An Ubuntu Pro account and Support Portal access are also included with your
 Dedicated Snap Store.
 
-Access has been granted to the SSO account: {{CUSTOMER_PRO_EMAIL}}
+Access has been granted to the SSO account: pro@acme.com
 
 Ubuntu Pro dashboard
 ********************
@@ -126,7 +123,7 @@ using the account mentioned at the beginning of this section.
 
 Canonical support will setup one contact point for the support account.
 Currently the Technical support contact set for the Dedicated Snap Store is
-{{CUSTOMER_PRO_EMAIL}}.
+pro@acme.com.
 
 For examples on some common support tickets, refer to :doc:`/how-to/support-tickets`.
 
@@ -150,7 +147,7 @@ Model Service
 
 The Model Service is responsible for providing your devices with a `serial assertion <https://documentation.ubuntu.com/core/reference/assertions/serial>`_,
 which is used for connecting to a Device View store. The Model Service can be
-accessed by the administrator, {{CUSTOMER_ADMIN_EMAIL}}.
+accessed by the administrator, admin@acme.com.
 
 To get started with the Model Service, refer to the
 :doc:`/how-to/configure-model-service`.
