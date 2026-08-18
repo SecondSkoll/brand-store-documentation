@@ -1,10 +1,5 @@
 .. meta::
-    :description: Step-by-step guides for configuring and managing a Dedicated Snap Store, including store commissioning, device connectivity, software updates, and account roles.
-
-..  This page is intended to serve as the main navigation page for How-to guides. See https://diataxis.fr/how-to-guides/ for more
-    information, or contact secondskoll (or the TA team) on Mattermost. 
-
-    Ensure this document is removed from `custom_excludes` in `custom_conf.py` before use.
+    :description: Step-by-step guides for administering a Dedicated Snap Store, using its API, onboarding devices, assigning roles, and obtaining support.
 
 
 How-to guides
@@ -17,14 +12,26 @@ have a Dedicated Snap Store, and you are interested in purchasing one,
 
 .. list-table::
 
+    * - :doc:`Administer your store <how-to/administer-your-store>`
+      - Access the dashboard, curate a Device View catalog, manage members, review uploads, and monitor use.
+    * - :doc:`Use the Store API <how-to/use-the-store-api>`
+      - Authenticate and list, add, or remove snaps through the Store API.
     * - :doc:`Configure Model Service <how-to/configure-model-service>`
       - Guidance on configuration of your Model Service.
     * - :doc:`Set up account roles <how-to/setting-up-account-roles>`
       - How to scope permissions for access to your Dedicated Snap Store.
     * - :doc:`Create serial numbers <how-to/creating-serial-numbers>`
       - Step by step instructions for generating unique serial numbers for your devices.
+
+Restrictions, reviews, and support
+----------------------------------
+
+.. list-table::
+
+    * - :doc:`Restrictions, reviews, and support <how-to/restrictions-reviews-and-support>`
+      - Determine whether an action is self-service, requires review, or needs Canonical intervention.
     * - :doc:`Support tickets <how-to/support-tickets>`
-      - Getting more support, and what you need to provide when lodging common requests.
+      - Use detailed templates for common support requests.
 
 For guidance on use of your Dedicated Snap Store, and some of the functionality
 it provides, please see our :doc:`Tutorial <tutorial/create-ubuntu-core-image>`,
@@ -37,6 +44,3 @@ your own store.
     :hidden:
 
     how-to/*
-
-..  You may want to add a brief explanation of any main How-to guide, and direct them towards specific ones, depending on the relevance
-    they have for users.

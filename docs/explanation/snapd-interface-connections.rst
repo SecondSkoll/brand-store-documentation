@@ -23,5 +23,8 @@ a. Some interfaces, such as `network <https://snapcraft.io/docs/network-interfac
    Work with your Field Engineer when you create your first such ticket, so as
    to ensure you provide all the required details. See :doc:`/how-to/support-tickets`.
 
+For a consolidated review and escalation workflow, see
+:doc:`/how-to/restrictions-reviews-and-support`.
+
 As there's some manual review required for these tickets, file them as early as
 possible, as requests to expedite these requests are generally frowned upon.

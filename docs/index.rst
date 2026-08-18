@@ -25,21 +25,30 @@ Dedicated Snap Store
    :header-rows: 0
    :widths: 25 75
 
-   * - Getting Started
+   * - Getting started
      - :doc:`Create an Ubuntu Core image <tutorial/create-ubuntu-core-image>` •
        :doc:`How-to: Configure Model Service <how-to/configure-model-service>` •
        :doc:`Configuration values <reference/configuration-values>`
-   * - Security and Access Control
-     - :doc:`Dedicated Snap Store security <explanation/security>` •
-       :doc:`Setting up account roles <how-to/setting-up-account-roles>` •
-       :doc:`Brand accounts <explanation/brand-accounts>`
-   * - Software controls
+   * - Store administration
+     - :doc:`Administer your store <how-to/administer-your-store>` •
+       :doc:`Set up account roles <how-to/setting-up-account-roles>` •
+       :doc:`Managing a Dedicated Snap Store <explanation/managing-an-app-store>`
+   * - Integration and APIs
+     - :doc:`Use the Store API <how-to/use-the-store-api>` •
+       :doc:`Store and Model Service APIs <reference/store-apis>`
+   * - Device onboarding and security
      - :doc:`Connecting devices <explanation/connecting-devices>` •
-       :doc:`Controlling updates <explanation/controlling-updates>` •
-       :doc:`Snapd interface connections <explanation/snapd-interface-connections>`
-   * - Architecture & Concepts
+       :doc:`Dedicated Snap Store security <explanation/security>` •
+       :doc:`Configure Model Service <how-to/configure-model-service>`
+   * - Restrictions and support
+     - :doc:`Restrictions, reviews, and support <how-to/restrictions-reviews-and-support>` •
+       :doc:`File a support ticket <how-to/support-tickets>`
+   * - Architecture and concepts
      - :doc:`Base Stores and Device View Stores <explanation/base-stores-and-device-view-stores>` •
        :doc:`Brand accounts <explanation/brand-accounts>`
+   * - Related Ubuntu Core and snapd topics
+     - :doc:`Controlling updates <explanation/controlling-updates>` •
+       :doc:`Snapd interface connections <explanation/snapd-interface-connections>`
 
 .. toctree::
    :maxdepth: 1
@@ -47,7 +56,7 @@ Dedicated Snap Store
 
    Tutorial <tutorial/create-ubuntu-core-image>
    How-to <how-to>   
-   Reference <reference/configuration-values>
+   Reference <reference>
    Explanation <explanation>
 
 .. rubric:: :h2:`How this documentation is organised`
@@ -56,7 +65,7 @@ This documentation uses the `Diátaxis documentation structure <https://diataxis
 
 * The :doc:`tutorial <tutorial/create-ubuntu-core-image>` provides a step-by-step walkthrough to help you get started.
 * :doc:`How-to guides <how-to>` offer practical guides for specific tasks related to managing your Dedicated Snap Store.
-* The :doc:`reference section <reference/configuration-values>` contains detailed information about configuration values and store settings.
+* The :doc:`reference section <reference>` contains detailed information about configuration values, store settings, and APIs.
 * :doc:`Explanation <explanation>` gives context and background to help you understand the Dedicated Snap Store concepts and architecture.
 
 

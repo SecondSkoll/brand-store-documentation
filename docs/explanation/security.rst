@@ -14,6 +14,48 @@ secure Store.
 Required secrets
 ----------------
 
+Store assets, controls, and responsibilities
+********************************************
+
+.. list-table::
+   :header-rows: 1
+   :widths: 18 18 34 30
+
+   * - Asset
+     - Stored by
+     - Protective control
+     - Related procedure
+   * - Brand credentials
+     - Customer
+     - Give the Brand account only the Publisher role; use multi-factor
+       authentication, restrict access, and rotate credentials.
+     - :doc:`Brand accounts <brand-accounts>` and
+       :doc:`/how-to/setting-up-account-roles`
+   * - Registered signing keys
+     - Customer stores the private half; Canonical stores registered public
+       keys.
+     - Keep private keys private and assign limited key roles.
+     - :doc:`Key-role support request </how-to/support-tickets>`
+   * - Serial signing key
+     - Canonical Model Service
+     - Its private material is inaccessible after generation or upload.
+     - :doc:`/how-to/configure-model-service`
+   * - Model API key
+     - Customer and gadget snap
+     - Treat the shared secret as sensitive; use hardware identity where
+       appropriate.
+     - :doc:`/explanation/connecting-devices`
+   * - Image-build Viewer credentials
+     - Customer
+     - Use a Viewer account rather than a privileged account.
+     - :ref:`Image creation credentials <image-creation-credentials>`
+   * - Reviewer and administrator SSO credentials
+     - Customer
+     - Apply least privilege and multi-factor authentication. A self-serve
+       interface Reviewer must differ from its Publisher or Collaborator.
+     - :doc:`/how-to/setting-up-account-roles` and
+       :doc:`/how-to/restrictions-reviews-and-support`
+
 - Account credentials
 
   - Specifically, the :ref:`Brand account <brand-accounts>` credentials

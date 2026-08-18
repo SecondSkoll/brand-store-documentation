@@ -1,10 +1,6 @@
 .. meta::
     :description: Explanation of Dedicated Snap Store concepts and architecture, including custom application stores for software distribution across device fleets with secure over-the-air updates.
 
-..  This page is intended to serve as the main navigation page for Explanation
-    documents. See https://diataxis.fr/explanation/ for more information, or
-    contact secondskoll (or the TA team) on Mattermost.
-
 Explanation
 ===========
 
@@ -24,18 +20,23 @@ including information on interfaces and general store security.
       - What are the differences between base stores and device view stores?
     * - :doc:`explanation/brand-accounts`
       - What is a brand account?
-    * - :doc:`explanation/connecting-devices`
-      - How does my device connect to my Dedicated Snap Store?
-    * - :doc:`explanation/controlling-updates`
-      - Are there different ways to control updates on devices connected to my store?
     * - :doc:`explanation/managing-an-app-store`
       - What snaps can I include, and can I monitor devices?
     * - :doc:`explanation/security`
       - What credentials does my store contain, and how are they managed?
     * - :doc:`explanation/snap-inclusion`
       - Can I decide what snaps are available in my store?
+
+.. rubric:: Related Ubuntu Core and snapd topics
+
+.. list-table::
+
+    * - :doc:`explanation/connecting-devices`
+      - How does an Ubuntu Core device connect to a Dedicated Snap Store?
+    * - :doc:`explanation/controlling-updates`
+      - How can snap updates be controlled on connected devices?
     * - :doc:`explanation/snapd-interface-connections`
-      - What snapd interfaces are available to me when publishing to a Dedicated Snap Store?
+      - How do snapd interface connections and reviews affect published snaps?
 
 .. rubric:: Helpful resources
 
