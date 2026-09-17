@@ -4,11 +4,14 @@
 Store and Model Service APIs
 ============================
 
+{% if 'admin@acme.com' in CUSTOMER_ADMIN_EMAIL %}
 .. warning::
 
 	Example values are provided for store configuration in this document. If
 	you are a Dedicated Snap Store customer, you will be provided with a set of
 	documentation with the details of your store.
+
+{% endif %}
 
 Two API surfaces support a Dedicated Snap Store: the Store API manages a
 provisioned store, while the Model Service handles device serial requests. The
@@ -30,16 +33,16 @@ The API provides these capabilities:
 
    * - Method and path
      - Capability
-   * - ``GET /api/v2/stores/acme-store``
+   * - ``GET /api/v2/stores/{{CUSTOMER_STORE_ID}}``
      - Read store details, users, and invitations.
-   * - ``GET`` or ``POST /api/v2/stores/acme-store/snaps``
+   * - ``GET`` or ``POST /api/v2/stores/{{CUSTOMER_STORE_ID}}/snaps``
      - List snaps, or add and remove eligible snaps.
-   * - ``GET`` or ``POST /api/v2/stores/acme-store/users``
+   * - ``GET`` or ``POST /api/v2/stores/{{CUSTOMER_STORE_ID}}/users``
      - Manage store users.
-   * - ``POST`` or ``PUT /api/v2/stores/acme-store/invites``
+   * - ``POST`` or ``PUT /api/v2/stores/{{CUSTOMER_STORE_ID}}/invites``
      - Create invitations with ``POST``, or modify, revoke, or resend them with
        ``PUT``. Invitations are read in the store-detail ``GET`` response.
-   * - ``POST /api/v2/stores/acme-store/metrics/models``
+   * - ``POST /api/v2/stores/{{CUSTOMER_STORE_ID}}/metrics/models``
      - Request store metrics.
 
 Responses are JSON. Error responses contain an ``error-list`` whose entries
