@@ -28,3 +28,5 @@ through the [Store API](../reference/store-apis.rst). These text reports provide
 the operative information; the following dashboard image is supplementary.
 
 ![Supplementary Store dashboard graph of weekly active users grouped by architecture](/images/managing-an-app-store2.png)
+
+
