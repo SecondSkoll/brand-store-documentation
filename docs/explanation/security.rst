@@ -27,12 +27,12 @@ Store assets, controls, and responsibilities
      - Related procedure
    * - Brand credentials
      - Customer
-     - Give the Brand account only the Publisher role; use multi-factor
+     - Give the Brand account only the Publisher role. Use multi-factor
        authentication, restrict access, and rotate credentials.
      - :doc:`Brand accounts <brand-accounts>` and
        :doc:`/how-to/setting-up-account-roles`
    * - Registered signing keys
-     - Customer stores the private half; Canonical stores registered public
+     - Customer stores the private half, Canonical stores registered public
        keys.
      - Keep private keys private and assign limited key roles.
      - :doc:`Key-role support request </how-to/support-tickets>`
@@ -47,7 +47,7 @@ Store assets, controls, and responsibilities
      - :doc:`/how-to/configure-model-service`
    * - Model API key
      - Customer and gadget snap
-     - Treat this shared credential as exposed when embedded in an image; use
+     - Treat this shared credential as exposed when embedded in an image, use
        hardware-identity onboarding where possible.
      - :doc:`/how-to/securely-onboard-a-device`
    * - Hardware identity key
@@ -133,7 +133,7 @@ The impact of a key compromise depends on the key's role:
   this shared credential for device authentication.
 * **Serial signing key:** An attacker that obtains this private key could issue
   serial assertions and authorize devices to access the store. Generate or
-  upload this key only in the Model Service; its private material must not be
+  upload this key only in the Model Service, its private material must not be
   exported or shared.
 
 Device lifecycle

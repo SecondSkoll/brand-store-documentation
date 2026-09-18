@@ -7,12 +7,12 @@ Reference
 Use these pages to look up customer-specific configuration and the supported
 Dedicated Snap Store API surfaces.
 
-.. list-table::
+.. domain:: Dedicated Snap Store reference
 
-   * - :doc:`Dedicated Snap Store configuration <reference/configuration-values>`
-     - Customer-specific configuration, accounts, roles, and provisioning.
-   * - :doc:`Store and Model Service APIs <reference/store-apis>`
-     - API surfaces, authentication, capabilities, and errors.
+   .. slice:: Configuration and APIs
+
+      :doc:`Dedicated Snap Store configuration <reference/configuration-values>`
+      :doc:`Store and Model Service APIs <reference/store-apis>`
 
 .. toctree::
    :maxdepth: 1

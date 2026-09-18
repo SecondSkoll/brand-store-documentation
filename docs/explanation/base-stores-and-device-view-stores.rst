@@ -38,7 +38,7 @@ Important facts
 ---------------
 
 Devices should be thought of as particular 'classes'. This means that if a
-device does a specific function, it is a unique category; devices which fulfill
+device does a specific function, it is a unique category. Devices which fulfill
 other needs fit into a different category. As such, each class of device
 should have its own Device View store, which serves snaps from the Base store
 corresponding to that class' particular function. This ensures a logical

@@ -24,8 +24,7 @@ store](../how-to/administer-your-store.rst) to curate the catalog.
 ## Monitoring and analytics
 The store dashboard reports weekly active users for a snap, including the
 architectures in use. Administrators can also request store and model metrics
-through the [Store API](../reference/store-apis.rst). These text reports provide
-the operative information; the following dashboard image is supplementary.
+through the [Store API](../reference/store-apis.rst).
 
 ![Supplementary Store dashboard graph of weekly active users grouped by architecture](/images/managing-an-app-store2.png)
 

@@ -92,7 +92,7 @@ A ``401`` means authentication is required. A ``403`` with
 ``macaroon-permission-required`` means the macaroon lacks ``store_admin`` or is
 restricted to another store. A ``404`` commonly indicates an incorrect store
 ID or insufficient permission to see that store. A ``400`` indicates an
-invalid request; use its error message to correct the payload.
+invalid request, use its error message to correct the payload.
 
 See :doc:`/reference/store-apis` and the authoritative `Brand Stores API
 reference <https://dashboard.snapcraft.io/docs/reference/v2/en/stores.html>`_.

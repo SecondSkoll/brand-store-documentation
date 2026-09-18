@@ -10,8 +10,8 @@ Prerequisites
 
 Before onboarding a device, ensure that you have:
 
-* configured a Model Service with a serial-signing key, model, and policy;
-* configured that model to use hardware-identity provisioning; and
+* configured a Model Service with a serial-signing key, model, and policy,
+* configured that model to use hardware-identity provisioning, and
 * a gadget snap that implements the ``prepare-device`` and
   ``prepare-serial-request`` hooks.
 

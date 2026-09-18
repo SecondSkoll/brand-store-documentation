@@ -14,29 +14,19 @@ use cases. It is the private, enterprise equivalent of the global Snap Store.
 The following documents provide more information on Dedicated Snap Stores,
 including information on interfaces and general store security.
 
-.. list-table::
+.. domain:: Dedicated Snap Store concepts
 
-    * - :doc:`explanation/base-stores-and-device-view-stores`
-      - What are the differences between base stores and device view stores?
-    * - :doc:`explanation/brand-accounts`
-      - What is a brand account?
-    * - :doc:`explanation/managing-an-app-store`
-      - What snaps can I include, and can I monitor devices?
-    * - :doc:`explanation/security`
-      - What credentials does my store contain, and how are they managed?
-    * - :doc:`explanation/snap-inclusion`
-      - Can I decide what snaps are available in my store?
+    .. slice:: Dedicated Snap Store concepts
 
-.. rubric:: Related Ubuntu Core and snapd topics
+        :doc:`Base Stores and Device View Stores <explanation/base-stores-and-device-view-stores>`
+        :doc:`Brand accounts <explanation/brand-accounts>`
+        :doc:`Managing a Dedicated Snap Store <explanation/managing-an-app-store>`
+        :doc:`Dedicated Snap Store security <explanation/security>`
 
-.. list-table::
+    .. slice:: Related Ubuntu Core and snapd topics
 
-    * - :doc:`explanation/secure-onboarding`
-      - How does an Ubuntu Core device connect to a Dedicated Snap Store?
-    * - :doc:`explanation/controlling-updates`
-      - How can snap updates be controlled on connected devices?
-    * - :doc:`explanation/snapd-interface-connections`
-      - How do snapd interface connections and reviews affect published snaps?
+        :doc:`Secure onboarding <explanation/secure-onboarding>`
+        :doc:`Controlling updates <explanation/controlling-updates>`
 
 .. rubric:: Helpful resources
 

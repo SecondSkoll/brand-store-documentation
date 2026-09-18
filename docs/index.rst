@@ -21,35 +21,44 @@ Dedicated Snap Store
 
 .. rubric:: :h2:`In this documentation`
 
-.. list-table:: 
-   :header-rows: 0
-   :widths: 25 75
+.. domain:: Dedicated Snap Store documentation
 
-   * - Getting started
-     - :doc:`Create an Ubuntu Core image <tutorial/create-ubuntu-core-image>` •
-       :doc:`Develop with a Dedicated Snap Store <how-to/develop-with-a-dedicated-snap-store>` •
-       :doc:`How-to: Configure Model Service <how-to/configure-model-service>` •
-       :doc:`Configuration values <reference/configuration-values>`
-   * - Store administration
-     - :doc:`Administer your store <how-to/administer-your-store>` •
-       :doc:`Set up account roles <how-to/setting-up-account-roles>` •
-       :doc:`Managing a Dedicated Snap Store <explanation/managing-an-app-store>`
-   * - Integration and APIs
-     - :doc:`Use the Store API <how-to/use-the-store-api>` •
-       :doc:`Store and Model Service APIs <reference/store-apis>`
-   * - Device onboarding and security
-     - :doc:`Secure onboarding <explanation/secure-onboarding>` •
-       :doc:`Dedicated Snap Store security <explanation/security>` •
-       :doc:`Configure Model Service <how-to/configure-model-service>`
-   * - Restrictions and support
-     - :doc:`Restrictions, reviews, and support <how-to/restrictions-reviews-and-support>` •
-       :doc:`File a support ticket <how-to/support-tickets>`
-   * - Architecture and concepts
-     - :doc:`Base Stores and Device View Stores <explanation/base-stores-and-device-view-stores>` •
-       :doc:`Brand accounts <explanation/brand-accounts>`
-   * - Related Ubuntu Core and snapd topics
-     - :doc:`Controlling updates <explanation/controlling-updates>` •
-       :doc:`Snapd interface connections <explanation/snapd-interface-connections>`
+    .. slice:: Getting started
+
+        :doc:`Create an Ubuntu Core image <tutorial/create-ubuntu-core-image>`
+        :doc:`Develop with a Dedicated Snap Store <how-to/develop-with-a-dedicated-snap-store>`
+        :doc:`Configure Model Service <how-to/configure-model-service>`
+        :doc:`Configuration values <reference/configuration-values>`
+
+    .. slice:: Store administration
+
+        :doc:`Administer your store <how-to/administer-your-store>`
+        :doc:`Set up account roles <how-to/setting-up-account-roles>`
+        :doc:`Managing a Dedicated Snap Store <explanation/managing-an-app-store>`
+
+    .. slice:: Integration and APIs
+
+        :doc:`Use the Store API <how-to/use-the-store-api>`
+        :doc:`Store and Model Service APIs <reference/store-apis>`
+
+    .. slice:: Device onboarding and security
+
+        :doc:`Secure onboarding <explanation/secure-onboarding>`
+        :doc:`Dedicated Snap Store security <explanation/security>`
+
+    .. slice:: Restrictions and support
+
+        :doc:`Restrictions, reviews, and support <how-to/restrictions-reviews-and-support>`
+        :doc:`File a support ticket <how-to/support-tickets>`
+
+    .. slice:: Architecture and concepts
+
+        :doc:`Base Stores and Device View Stores <explanation/base-stores-and-device-view-stores>`
+        :doc:`Brand accounts <explanation/brand-accounts>`
+
+    .. slice:: Related Ubuntu Core and snapd topics
+
+        :doc:`Controlling updates <explanation/controlling-updates>`
 
 .. toctree::
    :maxdepth: 1

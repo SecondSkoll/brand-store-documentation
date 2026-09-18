@@ -18,7 +18,7 @@ Develop with a Dedicated Snap Store
 This guide is for developers who need topublish snaps as a Brand account, Publisher,
 or Collaborator. Use it to register a snap name, prepare a track request, and
 route interface approvals. All snap names and revisions flow through the
-:ref:`Base store <base-stores>`; see :ref:`brand-accounts` for the Brand
+:ref:`Base store <base-stores>`, see :ref:`brand-accounts` for the Brand
 account's responsibilities.
 
 Prerequisites

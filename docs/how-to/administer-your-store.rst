@@ -27,6 +27,8 @@ Access the stores
 The exact dashboard labels can change. The labels in this guide have not been
 verified against a live customer store and require Store team verification.
 
+.. _snap_inclusion:
+
 Curate the Device View catalog
 ------------------------------
 
@@ -36,16 +38,15 @@ Curate the Device View catalog
 #. Confirm that the snap appears in the Device View catalog.
 
 Devices whose model assertion names this Device View store can then see the
-snap. Removing it from the Device View catalog removes its visibility there;
-it does not delete the source snap. See :doc:`/explanation/snap-inclusion` and
-:doc:`/explanation/base-stores-and-device-view-stores`. For automation, use
+snap. Removing it from the Device View catalog removes its visibility there,
+it does not delete the source snap. For automation, use
 :doc:`/how-to/use-the-store-api`.
 
 Manage members and reviews
 --------------------------
 
 Use :doc:`/how-to/setting-up-account-roles` to add accounts and apply least
-privilege. Store administration requires **Admin**; publishing and review use
+privilege. Store administration requires **Admin**, publishing and review use
 their respective roles.
 
 Review uploads at
@@ -56,7 +57,7 @@ Monitor use and get help
 ------------------------
 
 The dashboard reports weekly active users, including per-architecture data.
-Store metrics are also available through the API; see
+Store metrics are also available through the API, see
 :doc:`/reference/store-apis`.
 
 If an operation requires Canonical intervention, use the `Canonical Support
