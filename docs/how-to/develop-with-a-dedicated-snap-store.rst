@@ -15,7 +15,7 @@ Develop with a Dedicated Snap Store
 
 {% endif %}
 
-This guide is for developers who need topublish snaps as a Brand account, Publisher,
+This guide is for developers who need to publish snaps as a Brand account, Publisher,
 or Collaborator. Use it to register a snap name, prepare a track request, and
 route interface approvals. All snap names and revisions flow through the
 :ref:`Base store <base-stores>`, see :ref:`brand-accounts` for the Brand
@@ -52,7 +52,7 @@ After you confirm the prompt, a successful registration reports:
 
 .. note::
 
-    You can also log into `snapcraft.io`_ to register snap names.
+    You can also log into `snapcraft.io <https://snapcraft.io>`_ to register snap names.
 
 Open the snap overview page in the dashboard and confirm that the registered
 name is visible. Then add collaborators by visiting the `dashboard <https://dashboard.snapcraft.io/stores/snaps/>`_,
