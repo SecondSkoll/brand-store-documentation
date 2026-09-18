@@ -65,7 +65,7 @@ the production value is ``https://api.snapcraft.io/v1/``. At first boot, the
 device requests a serial assertion. Its gadget's ``prepare-device`` hook
 supplies the model API key and device identity used by that request. A
 hardware-backed flow can instead obtain a nonce from ``/v1/request-id`` and
-use a ``prepare-serial-request`` hook. See :doc:`/explanation/connecting-devices`.
+use a ``prepare-serial-request`` hook.
 
 Administrators configure models, policies, and serial signing keys in the
 dashboard, see :doc:`/how-to/configure-model-service`. No public,
