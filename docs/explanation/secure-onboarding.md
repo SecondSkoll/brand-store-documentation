@@ -1,6 +1,6 @@
-# Device connections
+# Secure onboarding
 
-Ubuntu Core devices are onboarded to their owner’s Dedicated Snap Store in
+Ubuntu Core devices should be onboarded to their owner’s Dedicated Snap Store in
 a secure manner. Secure onboarding prevents unauthorized access to private
 software and services. It also establishes a secure communication link between
 devices and their cloud backend.

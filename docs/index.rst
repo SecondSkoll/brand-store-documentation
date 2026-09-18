@@ -27,6 +27,7 @@ Dedicated Snap Store
 
    * - Getting started
      - :doc:`Create an Ubuntu Core image <tutorial/create-ubuntu-core-image>` •
+       :doc:`Develop with a Dedicated Snap Store <how-to/develop-with-a-dedicated-snap-store>` •
        :doc:`How-to: Configure Model Service <how-to/configure-model-service>` •
        :doc:`Configuration values <reference/configuration-values>`
    * - Store administration
@@ -37,7 +38,7 @@ Dedicated Snap Store
      - :doc:`Use the Store API <how-to/use-the-store-api>` •
        :doc:`Store and Model Service APIs <reference/store-apis>`
    * - Device onboarding and security
-     - :doc:`Connecting devices <explanation/connecting-devices>` •
+     - :doc:`Secure onboarding <explanation/secure-onboarding>` •
        :doc:`Dedicated Snap Store security <explanation/security>` •
        :doc:`Configure Model Service <how-to/configure-model-service>`
    * - Restrictions and support

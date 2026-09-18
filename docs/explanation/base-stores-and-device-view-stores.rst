@@ -11,7 +11,7 @@ Base stores
 -----------
 
 A Base store is the store to which every snap name should be registered
-and published through. This store is the primary point of interaction between
+and published to. This store is the primary point of interaction between
 developers and the Dedicated Snap Store infrastructure. All snap names and
 revisions flow through the Base store.
 

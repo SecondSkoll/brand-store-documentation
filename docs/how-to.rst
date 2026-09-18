@@ -14,6 +14,8 @@ have a Dedicated Snap Store, and you are interested in purchasing one,
 
     * - :doc:`Administer your store <how-to/administer-your-store>`
       - Access the dashboard, curate a Device View catalog, manage members, review uploads, and monitor use.
+    * - :doc:`Develop with a Dedicated Snap Store <how-to/develop-with-a-dedicated-snap-store>`
+      - Register snap names, request tracks, and get interface connections approved for your snaps.
     * - :doc:`Use the Store API <how-to/use-the-store-api>`
       - Authenticate and list, add, or remove snaps through the Store API.
     * - :doc:`Configure Model Service <how-to/configure-model-service>`

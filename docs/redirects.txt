@@ -53,3 +53,4 @@
 "how-to/snap-inclusion/" "explanation/snap-inclusion/"
 "how-to/updating-software/" "/"
 "how-to/username-changes/" "/"
+"explanation/connecting-devices" "explanation/secure-onboarding"

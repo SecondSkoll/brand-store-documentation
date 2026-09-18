@@ -31,7 +31,7 @@ including information on interfaces and general store security.
 
 .. list-table::
 
-    * - :doc:`explanation/connecting-devices`
+    * - :doc:`explanation/secure-onboarding`
       - How does an Ubuntu Core device connect to a Dedicated Snap Store?
     * - :doc:`explanation/controlling-updates`
       - How can snap updates be controlled on connected devices?

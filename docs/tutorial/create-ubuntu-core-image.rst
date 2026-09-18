@@ -126,6 +126,9 @@ Register the gadget snap name in your Base store and push the initial revision:
 For how automatic and manual reviews work, see
 :doc:`/how-to/restrictions-reviews-and-support`.
 
+To register additional snaps to your Base store, see
+:doc:`/how-to/develop-with-a-dedicated-snap-store`.
+
 At this point, you should add a `collaborator <https://snapcraft.io/docs/store-brand-accounts>`_
 to the gadget snap and logout of the Brand account. A good choice for such an
 account would be one with the **Viewer** role in the ``{{CUSTOMER_STORE_NAME}}``
