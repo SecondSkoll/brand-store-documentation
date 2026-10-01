@@ -28,7 +28,6 @@ Dedicated Snap Store
         :doc:`Create an Ubuntu Core image <tutorial/create-ubuntu-core-image>`
         :doc:`Develop with a Dedicated Snap Store <how-to/develop-with-a-dedicated-snap-store>`
         :doc:`Configure Model Service <how-to/configure-model-service>`
-        :doc:`Configuration values <reference/configuration-values>`
 
     .. slice:: Store administration
 
@@ -55,10 +54,8 @@ Dedicated Snap Store
 
         :doc:`Base Stores and Device View Stores <explanation/base-stores-and-device-view-stores>`
         :doc:`Brand accounts <explanation/brand-accounts>`
-
-    .. slice:: Related Ubuntu Core and snapd topics
-
         :doc:`Controlling updates <explanation/controlling-updates>`
+
 
 .. toctree::
    :maxdepth: 1
