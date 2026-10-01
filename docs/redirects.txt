@@ -54,3 +54,5 @@
 "how-to/updating-software/" "/"
 "how-to/username-changes/" "/"
 "explanation/connecting-devices" "explanation/secure-onboarding"
+"/explanation/snap-inclusion/" "how-to/administer-your-store"
+"/explanation/snapd-interface-connections/" "https://snapcraft.io/docs/reference/interfaces/"
